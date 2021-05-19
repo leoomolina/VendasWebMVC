@@ -4,6 +4,6 @@
     {
         PENDENTE,
         FATURADO,
-        CANCELED
+        CANCELADO
     }
 }

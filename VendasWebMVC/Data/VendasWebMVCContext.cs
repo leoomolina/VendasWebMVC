@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VendasWebMVC.Models;
 
-namespace VendasWebMVC.Data
+namespace VendasWebMVC.Models
 {
     public class VendasWebMVCContext : DbContext
     {
