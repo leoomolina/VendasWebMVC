@@ -7,6 +7,7 @@ namespace VendasWebMVC.Models
     public class Vendedor
     {
         public int Id { get; set; }
+        public int DepartamentoId { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
