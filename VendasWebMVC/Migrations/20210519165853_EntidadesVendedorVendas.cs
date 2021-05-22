@@ -14,7 +14,7 @@ namespace VendasWebMVC.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: false),
                     SalarioBase = table.Column<double>(nullable: false),
