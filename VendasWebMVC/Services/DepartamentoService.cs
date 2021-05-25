@@ -15,7 +15,7 @@ namespace VendasWebMVC.Services
 
         public List<Departamento> FindAll()
         {
-            return _context.Departamento.OrderBy(d => d.Name).ToList();
+            return _context.Departamento.OrderBy(d => d.Nome).ToList();
         }
     }
 }
