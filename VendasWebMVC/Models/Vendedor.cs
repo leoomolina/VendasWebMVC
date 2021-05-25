@@ -9,16 +9,24 @@ namespace VendasWebMVC.Models
     {
         public int Id { get; set; }
         public int DepartamentoId { get; set; }
+        
+        [Required(ErrorMessage = "{0} é obrigatório!")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} deve conter de {2} a {1} caracteres.")]
         public string Nome { get; set; }
 
         [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Entre com um e-mail válido.")]
+        [Required(ErrorMessage = "{0} é obrigatório!")]
         public string Email { get; set; }
         
         [Display(Name = "Data de Nascimento")]
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "{0} é obrigatório!")]
         public DateTime DataNascimento { get; set; }
         
         [Display(Name = "Salário Base")]
+        [Required(ErrorMessage = "{0} é obrigatório!")]
+        [Range(100, 50000, ErrorMessage = "{0} deve ser entre {1} e {2}.")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double SalarioBase { get; set; }
         public Departamento Departamento { get; set; }
