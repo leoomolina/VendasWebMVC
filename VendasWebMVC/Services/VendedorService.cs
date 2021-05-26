@@ -40,7 +40,7 @@ namespace VendasWebMVC.Services
             _context.Vendedor.Remove(obj);
             await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException e)
+            catch (DbUpdateException)
             {
                 throw new IntegrityException("Vendedor que contém vendas não pode ser deletado!");
             }

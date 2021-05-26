@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,9 +11,24 @@ namespace VendasWebMVC.Services
     {
         private readonly VendasWebMVCContext _context;
 
-        public DepartamentoService(VendasWebMVCContext context)
+        public VendasService(VendasWebMVCContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<Venda>> FindByDateAsync(DateTime? dataMin, DateTime? dataMax)
+        {
+            var result = from obj in _context.Venda select obj;
+
+            if (dataMin.HasValue)
+                result = result.Where(v => v.DataVenda >= dataMin.Value);
+
+            if (dataMax.HasValue)
+                result = result.Where(v => v.DataVenda <= dataMax.Value);
+
+            return await result
+                        .Include(i => i.Vendedor).Include(i => i.Vendedor.Departamento)
+                        .OrderByDescending(i => i.DataVenda).ToListAsync();
         }
     }
 }
