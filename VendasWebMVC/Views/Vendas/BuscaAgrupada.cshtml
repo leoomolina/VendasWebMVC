@@ -1,5 +1,87 @@
-﻿@{
-    ViewData["Title"] = "Sales Records";
+﻿@model IEnumerable<IGrouping<Departamento, Venda>>
+
+@{
+    ViewData["Title"] = "Busca por Departamento";
+    DateTime dataMin = DateTime.Parse(ViewData["dataMin"] as string);
+    DateTime dataMax = DateTime.Parse(ViewData["dataMax"] as string);
 }
 
 <h2>@ViewData["Title"]</h2>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="dataMin">Data Mínima</label>
+                    <input type="date" class="form-control" name="dataMin" value=@ViewData["dataMin"] />
+                </div>
+                <div class="form-group">
+                    <label for="dataMax">Data Máxima</label>
+                    <input type="date" class="form-control" name="dataMax" value=@ViewData["dataMax"] />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+</nav>
+
+@foreach (var departamento in Model)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Departamento: @departamento.Key.Nome - Total Vendas: R$ @departamento.Key.TotalVendas(dataMin, dataMax).ToString("F2")</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Data Venda
+                        </th>
+                        <th>
+                            Valor Total
+                        </th>
+                        <th>
+                            Vendedor
+                        </th>
+                        <th>
+                            Departamento
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var venda in departamento)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => venda.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => venda.DataVenda)
+                            </td>
+                            <td>
+                                R$ @Html.DisplayFor(modelItem => venda.ValorTotal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => venda.Vendedor.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => venda.Vendedor.Departamento.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => venda.Status)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

@@ -12,11 +12,11 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="dataMin">Data Mínima</label>
-                    <input type="date" class="form-control" name="dataMin"  value=@ViewData["DataMin"] />
+                    <input type="date" class="form-control" name="dataMin"  value=@ViewData["dataMin"] />
                 </div>
                 <div class="form-group">
                     <label for="dataMax">Data Máxima</label>
-                    <input type="date" class="form-control" name="dataMax" value=@ViewData["DataMax"] />
+                    <input type="date" class="form-control" name="dataMax" value=@ViewData["dataMax"] />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -63,13 +63,7 @@
                             @Html.DisplayFor(modelItem => item.DataVenda)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ValorTotal)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Vendedor.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Vendedor.Departamento.Nome)
+                            R$ @Html.DisplayFor(modelItem => item.Vendedor.Departamento.Nome)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Status)
