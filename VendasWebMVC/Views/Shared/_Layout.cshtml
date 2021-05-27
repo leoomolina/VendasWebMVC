@@ -26,14 +26,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">VendasWebMVC</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><i class="bi bi-house-door"></i>VendasWebMVC</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a></li>
                     <li><a asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a></li>
                     <li><a asp-area="" asp-controller="Vendedores" asp-action="Index">Vendedores</a></li>
+                    <li><a asp-area="" asp-controller="Vendas" asp-action="Index">Consultar Vendas</a></li>
+                </ul>
+                <ul class="navbar-nav navbar-right nav">
+                    <li><p></p><p><a class="btn btn-success" asp-controller="Vendas" asp-action="Cadastro">Cadastrar Venda</a></p></li>
                 </ul>
             </div>
         </div>

@@ -8,10 +8,14 @@ namespace VendasWebMVC.Models
     {
         public int Id { get; set; }
 
+        public int VendedorId { get; set; }
+
+        [Required(ErrorMessage = "{0} é obrigatório!")]
         [Display(Name = "Data da Venda")]
         [DataType(DataType.Date)]
         public DateTime DataVenda { get; set; }
         
+        [Required(ErrorMessage = "{0} é obrigatório!")]
         [Display(Name = "Valor Total")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double ValorTotal { get; set; }

@@ -1,0 +1,37 @@
+﻿@model VendasWebMVC.Models.ViewModels.VendaFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Venda";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h4>Vendedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar">
+            <div class="form-group">
+                <label asp-for="Venda.DataVenda" class="control-label"></label>
+                <input asp-for="Venda.DataVenda" class="form-control" />
+                <span asp-validation-for="Venda.DataVenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venda.ValorTotal" class="control-label"></label>
+                <input asp-for="Venda.ValorTotal" class="form-control" />
+                <span asp-validation-for="Venda.ValorTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venda.VendedorId" class="control-label"></label>
+                <select asp-for="Venda.VendedorId" asp-items="@(new SelectList(Model.Vendedores, "Id", "Nome"))" class="form-control">
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

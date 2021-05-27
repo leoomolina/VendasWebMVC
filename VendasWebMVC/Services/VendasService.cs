@@ -45,5 +45,12 @@ namespace VendasWebMVC.Services
                         .Include(i => i.Vendedor).Include(i => i.Vendedor.Departamento)
                         .GroupBy(v => v.Vendedor.Departamento).ToListAsync();
         }
+
+        public async Task InsertAsync(Venda obj)
+        {
+            obj.Status = Models.Enums.VendaStatus.PENDENTE;
+            _context.Add(obj);
+            await _context.SaveChangesAsync();
+        }
     }
 }
