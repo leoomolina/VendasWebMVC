@@ -35,3 +35,7 @@ body {
         display: none;
     }
 }
+
+.lm-link-icon:hover {
+    opacity: 0.5;
+}
