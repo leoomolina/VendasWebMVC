@@ -15,6 +15,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -26,16 +27,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><i class="bi bi-house-door"></i>VendasWebMVC</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">VendasWebMVC</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a></li>
                     <li><a asp-area="" asp-controller="Vendedores" asp-action="Index">Vendedores</a></li>
-                    <li><a asp-area="" asp-controller="Vendas" asp-action="Index">Consultar Vendas</a></li>
+                    <li><a asp-area="" asp-controller="Vendas" asp-action="Index">Consulta de Vendas</a></li>
                 </ul>
                 <ul class="navbar-nav navbar-right nav">
-                    <li><p></p><p><a class="btn btn-success" asp-controller="Vendas" asp-action="Cadastro">Cadastrar Venda</a></p></li>
+                    <li><p></p><p><a class="btn btn-success" asp-controller="Vendas" asp-action="Cadastro">Cadastrar Venda <i class="fas fa-cart-plus lm-color-green"></i></a></p></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +49,7 @@
         <hr />
         <footer>
             <div class="container text-center">
-                <p>&copy; 2021 - VendasWebMVC</p>
+                <p><i class="far fa-copyright"></i> 2021 - VendasWebMVC</p>
                 <p>
                     Projeto MVC criado durante o
                     <ExtraLink>

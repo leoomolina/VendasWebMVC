@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Venda>
 
 @{
-    ViewData["Title"] = "Sales Records";
+    ViewData["Title"] = "Consulta de Vendas";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -19,7 +19,7 @@
                     <input type="date" class="form-control" name="dataMax" value=@ViewData["dataMax"] />
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-primary"><span class="fas fa-search"></span> Buscar</button>
         </form>
     </div>
 </nav>

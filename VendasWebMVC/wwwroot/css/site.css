@@ -39,3 +39,7 @@ body {
 .lm-link-icon:hover {
     opacity: 0.5;
 }
+
+.lm-color-green {
+    color: #01DF01;
+}
